@@ -1,0 +1,413 @@
+
+<div class="shipment-wrapper">
+
+    <!-- Shipment Type -->
+    <div class="shipment-type-section">
+
+        <div class="section-title">
+            Shipment Type
+            <span class="info-icon">i</span>
+        </div>
+
+        <div class="shipment-cards">
+
+            <!-- ND -->
+            <div class="shipment-card active" data-type="ND">
+                <div class="shipment-icon">📦</div>
+
+                <div class="shipment-content">
+                    <div class="shipment-name">ND</div>
+
+                    <div class="shipment-label">
+                        Estimated Delivery
+                    </div>
+
+                    <div class="shipment-date">
+                        18 Jun 2026
+                    </div>
+
+                    <div class="shipment-price">
+                        30.00 THB
+                    </div>
+                </div>
+            </div>
+
+            <!-- SD -->
+            <div class="shipment-card" data-type="SD">
+                <div class="shipment-icon">📦🪽</div>
+
+                <div class="shipment-content">
+                    <div class="shipment-name">SD</div>
+
+                    <div class="shipment-label">
+                        Estimated Delivery
+                    </div>
+
+                    <div class="shipment-date">
+                        17 Jun 2026
+                    </div>
+
+                    <div class="shipment-price">
+                        100.00 THB
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Additional Services -->
+    <div class="service-section">
+
+        <div class="service-tabs">
+
+            <div class="service-tab">
+                <label>
+                    <input type="checkbox" id="recipientCheckbox">
+                    Paid by Recipient
+                </label>
+            </div>
+
+            <div class="service-tab" id="codTab">
+                <label>
+                    <input type="checkbox" id="codCheckbox">
+                    COD
+                </label>
+            </div>
+
+            <div class="service-tab">
+                <label>
+                    <input type="checkbox" id="insuranceCheckbox">
+                    Insurance
+                </label>
+            </div>
+
+        </div>
+
+
+        <div class="service-content">
+
+            <div class="service-panel" id="recipient-panel">
+                <div class="panel-body">
+                    Shipping charges will be collected from the recipient.
+                </div>
+            </div>
+
+
+            <div class="service-panel" id="cod-panel">
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label>COD Amount (THB)</label>
+
+                        <input
+                            type="number"
+                            placeholder="Enter COD Amount">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-panel" id="insurance-panel">
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+
+                        <label>Declare Value (THB)</label>
+
+                        <input
+                            type="number"
+                            id="declareValue"
+                            placeholder="Enter Declared Value">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Insurance Fee (THB)</label>
+
+                        <input
+                            type="text"
+                            id="insuranceFee"
+                            readonly
+                            value="0.00">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+}
+
+.shipment-wrapper{
+    max-width:840px;
+}
+
+/* Shipment Type */
+.shipment-type-section{
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.info-icon{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:16px;
+    height:16px;
+    border:1px solid #999;
+    border-radius:50%;
+    font-size:11px;
+    margin-left:6px;
+}
+
+.shipment-cards{
+    display:flex;
+    gap:12px;
+}
+
+.shipment-card{
+    flex:1;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px 22px;
+    border-radius:14px;
+    border:1px solid #DADADA;
+    cursor:pointer;
+    transition:all .2s;
+    background:#fff;
+}
+
+.shipment-card.active{
+    border:none;
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        #F2653A,
+        #D6D4F5
+    );
+}
+
+.shipment-icon{
+    font-size:44px;
+}
+
+.shipment-content{
+    flex:1;
+    text-align:center;
+}
+
+.shipment-name{
+    font-weight:700;
+    margin-bottom:4px;
+}
+
+.shipment-label{
+    font-size:12px;
+}
+
+.shipment-date{
+    font-size:13px;
+    margin:4px 0;
+}
+
+.shipment-price{
+    font-size:24px;
+    font-weight:700;
+}
+
+/* Additional Services */
+.service-section{
+    border:1px solid #E5E7EB;
+    border-radius:12px;
+    overflow:hidden;
+    background:#FFF;
+}
+
+.service-tabs{
+    display:flex;
+    gap:12px;
+    padding:16px;
+    border-bottom:1px solid #F0F0F0;
+    flex-wrap:wrap;
+}
+
+.service-tab{
+    padding:10px 18px;
+    border:1px solid #D9D9D9;
+    border-radius:10px;
+    background:#FFF;
+}
+
+.service-tab label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+}
+
+.service-panel{
+    display:none;
+    padding:20px;
+}
+
+.panel-body{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    max-width:300px;
+}
+
+.form-group label{
+    font-size:14px;
+    font-weight:500;
+    color:#374151;
+}
+
+.form-group input{
+    height:40px;
+    padding:0 12px;
+    border:1px solid #D1D5DB;
+    border-radius:8px;
+    font-size:14px;
+    outline:none;
+}
+
+.form-group input:focus{
+    border-color:#F2653A;
+}
+</style>
+
+
+<script>
+/* Shipment Type */
+document.querySelectorAll('.shipment-card')
+    .forEach(card => {
+
+        card.addEventListener('click', () => {
+
+            document.querySelectorAll('.shipment-card')
+                .forEach(c => c.classList.remove('active'));
+
+            card.classList.add('active');
+
+        });
+
+});
+
+
+/* Additional Services */
+const recipientCheckbox =
+    document.getElementById('recipientCheckbox');
+
+const codCheckbox =
+    document.getElementById('codCheckbox');
+
+const insuranceCheckbox =
+    document.getElementById('insuranceCheckbox');
+
+const recipientPanel =
+    document.getElementById('recipient-panel');
+
+const codPanel =
+    document.getElementById('cod-panel');
+
+const insurancePanel =
+    document.getElementById('insurance-panel');
+
+const codTab =
+    document.getElementById('codTab');
+
+
+function updatePanels(){
+
+    recipientPanel.style.display =
+        recipientCheckbox.checked ? 'block' : 'none';
+
+
+    if(recipientCheckbox.checked){
+
+        codCheckbox.checked = false;
+
+        codTab.style.display = 'none';
+
+        codPanel.style.display = 'none';
+
+    }else{
+
+        codTab.style.display = 'block';
+
+        codPanel.style.display =
+            codCheckbox.checked ? 'block' : 'none';
+    }
+
+
+    insurancePanel.style.display =
+        insuranceCheckbox.checked ? 'block' : 'none';
+}
+
+
+recipientCheckbox.addEventListener(
+    'change',
+    updatePanels
+);
+
+codCheckbox.addEventListener(
+    'change',
+    updatePanels
+);
+
+insuranceCheckbox.addEventListener(
+    'change',
+    updatePanels
+);
+
+
+/* Insurance Fee */
+document.getElementById('declareValue')
+    .addEventListener('input', function(){
+
+        const value =
+            parseFloat(this.value) || 0;
+
+        const fee = value * 0.01;
+
+        document.getElementById('insuranceFee')
+            .value = fee.toFixed(2);
+
+});
+
+
+updatePanels();
+</script>
